@@ -13,4 +13,3 @@ const counter = makeCounter(0);
 console.log(counter());
 console.log(counter());
 console.log(counter());
-
