@@ -1,8 +1,7 @@
 export default class Stack {
 
     constructor() {
-      this.arr = [];
-      this.len = 0;
+      this._items = [];
     }
   
     /**
@@ -11,8 +10,7 @@ export default class Stack {
      * @return {number} The new length of the stack.
      */
     push(item) {
-      this.len = this.arr.push(item);
-      return this.len;
+      return this._items.push(item);
     }
   
     /**
@@ -20,16 +18,14 @@ export default class Stack {
      * @return {*} The item at the top of the stack if it is not empty, `undefined` otherwise.
      */
     pop() {
-      const e = this.arr.pop();
-      this.len = this.arr.length;
-      return e;
+      return this._items.pop();
     }
     /**
      * Determines if the stack is empty.
      * @return {boolean} `true` if the stack has no items, `false` otherwise.
      */
     isEmpty() {
-      return this.len === 0;
+      return this.length() === 0;
     }
   
     /**
@@ -37,7 +33,7 @@ export default class Stack {
      * @return {*} The item at the top of the stack if it is not empty, `undefined` otherwise.
      */
     peek() {
-      return this.arr[this.len - 1];
+      return this._items[this.length() - 1];
     }
   
     /**
@@ -45,6 +41,6 @@ export default class Stack {
      * @return {number} The number of items in the stack.
      */
     length() {
-      return this.len;
+      return this._items.length;
     }
   }
