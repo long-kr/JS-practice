@@ -1,17 +1,11 @@
 
-// export function printSomething() {
-//     while(i < 1000000000) {
-//         i++;
-//     }
-//     console.log(i);
-// }
+onmessage = async (e) => {
+	try {
+		const res = await fetch(e.data);
+        const data = await res.json()
+        postMessage(data);
 
-onmessage = e => {
-    let i = 0;
-    console.log(e.data);
-    while(i < 1000000000  ) {
-        i++;
-    }
-    console.log(i);
-    postMessage(i);
-}
+	} catch (error) {
+		console.log(error);
+	}
+};
